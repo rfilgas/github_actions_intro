@@ -2,3 +2,21 @@ name: first
 
 on: push
 
+jobs:
+  job1:
+    name: First job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step One
+        uses: actions/checkout@v2
+      - name: Step Two
+        run: env | sort
+  job2:
+    name: Second Job
+    runs-on: windows-latest
+    steps:
+      - name: Step one
+        uses: actions/checkout@v2
+      - name: Step Two
+      # enclosing this in quotes will mean that the env here won't be interpreted as a part of the workflow.
+        run: "Get-Child-Item Env: | Sort-Object Name"
