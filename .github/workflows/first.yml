@@ -19,4 +19,4 @@ jobs:
         uses: actions/checkout@v2
       - name: Step Two
       # enclosing this in quotes will mean that the env here won't be interpreted as a part of the workflow.
-        run: "Get-Child-Item Env: | Sort-Object Name"
+        run: "GetChild-Item Env: | Sort-Object Name"
