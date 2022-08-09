@@ -50,3 +50,45 @@ Github webhooks are events associated with the repo, but may not have a direct r
 * The **steps** attribute lists specific actions and commands.
 * The **uses** attribute uses an action - a bundle of code/docker image. They live in the same directory as a workflow or a container registry.
 * The **run** attribute executes a command or series of commands that can be used in a shell environemnt.
+
+## Conditional Examples:
+
+```
+# Trigger on push
+on:
+	push:
+		branches:
+			- develop
+			- master
+---------------------------------
+# Trigger on Pull
+on:
+	pull_request:
+		branches:
+			- master
+---------------------------------
+# Trigger on both conditionals.
+on:
+	push:
+		branches:
+			- develop
+			- master
+
+	pull_request:
+		branches:
+			-master
+```
+
+Other conditionals include branches, tags, and special charctars using regex:
+* branches-ignore
+* tags tags-ignore
+* 'feature/new-feature'
+* 'release/*' 'm?ster'
+
+## Limitations
+* Only 20 workflows can be running at the same time.
+* concurrent jobs are limited to 20 concurrent jobs for free plans which goes up by tier.
+* obs are limited to 6 hours max
+* Actions can't trigger other workflows - this would allow infinite loops.
+* Action logs are limited to a max of 64 kilobytes
+* Jobs will queue or fail if limits are exceeded.
