@@ -92,3 +92,15 @@ Other conditionals include branches, tags, and special charctars using regex:
 * Actions can't trigger other workflows - this would allow infinite loops.
 * Action logs are limited to a max of 64 kilobytes
 * Jobs will queue or fail if limits are exceeded.
+
+## Deployable prewritten actions:
+https://github.com/marketplace?type=actions
+
+```yaml
+# code from tutorial
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+    - name: Python Syntax Checker
+      uses: cclauss/Find-Python-syntax-errors-action@v0.2.
+```
