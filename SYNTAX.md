@@ -50,6 +50,8 @@ Github webhooks are events associated with the repo, but may not have a direct r
 * The **steps** attribute lists specific actions and commands.
 * The **uses** attribute uses an action - a bundle of code/docker image. They live in the same directory as a workflow or a container registry.
 * The **run** attribute executes a command or series of commands that can be used in a shell environemnt.
+* Actions within the same repo can be used with relative paths: -uses: "./.github/my_action"
+* To call an action from a different repository the UID, repo, and reference is needed. -uses: "username/repo_name@branch_name_or_SHA"
 
 ## Conditional Examples:
 
@@ -103,4 +105,15 @@ https://github.com/marketplace?type=actions
       uses: actions/checkout@v2
     - name: Python Syntax Checker
       uses: cclauss/Find-Python-syntax-errors-action@v0.2.
+```
+## Passing arguments to an action:
+```yaml
+steps:
+	name: code_checkout
+	uses: actions/checkout@v2
+	with:
+		repository: apache/tomcat  # checkout all code from apache tomcat repo
+		ref: master # branch
+		path: ./tomcat # relative path from the branch
+
 ```
