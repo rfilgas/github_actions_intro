@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Check out tomcat-users.xml
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: List project files and java version
       run: |
@@ -17,19 +17,18 @@ jobs:
           java -version
 
     - name: Check out Apache Tomcat
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: apache/tomcat # Repository name with owner
-        ref: master               # The branch, tag or SHA to checkout
+        ref: main               # The branch, tag or SHA to checkout
         path: ./tomcat            # Relative path under $GITHUB_WORKSPACE
 
-    - name: Setup Java 18
+    - name: Setup Java 9
       uses: actions/setup-java@v1
       with:
-        java-version: '18.0.2'     # The JDK version to make available on the path
+        java-version: '9.0.4'     # The JDK version to make available on the path
         java-package: jdk         # (jre, jdk, or jdk+fx) - defaults to jdk
         architecture: x64         # (x64 or x86) - defaults to x64
-
 
     - name: List project files and java version
       run: |
