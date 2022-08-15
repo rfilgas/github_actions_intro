@@ -108,6 +108,7 @@ https://github.com/marketplace?type=actions
 ```
 ## Passing arguments to an action:
 ```yaml
+# note - these specific steps didn't work in the example, but syntax is correct.
 steps:
 	name: code_checkout
 	uses: actions/checkout@v2
@@ -115,5 +116,15 @@ steps:
 		repository: apache/tomcat  # checkout all code from apache tomcat repo
 		ref: master # branch
 		path: ./tomcat # relative path from the branch
-
 ```
+
+## Environment Variables
+- dynamic key value pairs stored in memory
+- injected at runtime
+- case sensitive
+- prefixed by GITHUB_
+- Custom env variables - defined at workflow and step levels
+- Can be set with yaml or shell syntax
+1. Bash: $VARIABLE_NAME
+2. Powershell: $Env:VARIABLE_NAME
+3. YAML: ${{ env.VARIABLE_NAME }}
