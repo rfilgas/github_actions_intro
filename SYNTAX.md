@@ -128,3 +128,8 @@ steps:
 1. Bash: $VARIABLE_NAME
 2. Powershell: $Env:VARIABLE_NAME
 3. YAML: ${{ env.VARIABLE_NAME }}
+
+## Artifacts
+- free accounts get 500mb for storage
+- artifacts are stored for 90 days
+- for pull requests, retention period resets on pushes
